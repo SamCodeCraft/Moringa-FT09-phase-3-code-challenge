@@ -2,12 +2,12 @@ import unittest
 from models.author import Author
 from models.magazine import Magazine
 from models.article import Article
-from database.connection import get_connection
+from database.connection import get_db_connection
 
 class TestModels(unittest.TestCase):
     def setUp(self):
         # Initialize database and tables here before each test
-        conn = get_connection()
+        conn = get_db_connection()
         with conn:
             conn.executescript('''
             CREATE TABLE IF NOT EXISTS authors (
@@ -31,7 +31,7 @@ class TestModels(unittest.TestCase):
 
     def tearDown(self):
         # Clean up the database after each test
-        conn = get_connection()
+        conn = get_db_connection()
         with conn:
             conn.executescript('''
             DROP TABLE IF EXISTS articles;

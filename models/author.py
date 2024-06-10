@@ -1,4 +1,4 @@
-from database.connection import get_connection
+from database.connection import get_db_connection
 
 class Author:
     def __init__(self, name):
@@ -14,7 +14,7 @@ class Author:
         return self._name
 
     def _create_author(self):
-        with get_connection() as conn:
+        with get_db_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("INSERT INTO authors (name) VALUES (?)", (self._name,))
             return cursor.lastrowid
@@ -23,7 +23,7 @@ class Author:
 
     # 1. Retrieving all articles written by this author using SQL JOIN
     def articles(self):
-        with get_connection() as conn:
+        with get_db_connection() as conn:
             cursor = conn.cursor()
             cursor.execute('''
                 SELECT a.* FROM articles a
@@ -34,7 +34,7 @@ class Author:
 
     # 2. Retrieving all magazines where the author has written articles using SQL JOIN
     def magazines(self):
-        with get_connection() as conn:
+        with get_db_connection() as conn:
             cursor = conn.cursor()
             cursor.execute('''
                 SELECT DISTINCT m.* FROM magazines m

@@ -1,8 +1,8 @@
 import sqlite3
-from .connection import get_connection
+from .connection import get_db_connection
 
 def create_tables():
-    conn = get_connection()
+    conn = get_db_connection()
     cursor = conn.cursor()
 
     # Create authors table
