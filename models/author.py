@@ -1,7 +1,7 @@
 from database.connection import get_db_connection
 
 class Author:
-    def __init__(self, name):
+    def __init__(self, name, id=None):
         self._name = name
         self._id = self._create_author()
 
