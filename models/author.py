@@ -3,7 +3,7 @@ from database.connection import get_db_connection
 class Author:
     def __init__(self, name, id=None):
         self._name = name
-        self._id = self._create_author()
+        self._id = id
 
     @property
     def id(self):
@@ -13,11 +13,11 @@ class Author:
     def name(self):
         return self._name
 
-    def _create_author(self):
-        with get_db_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute("INSERT INTO authors (name) VALUES (?)", (self._name,))
-            return cursor.lastrowid
+    # def _create_author(self):
+    #     with get_db_connection() as conn:
+    #         cursor = conn.cursor()
+    #         cursor.execute("INSERT INTO authors (name) VALUES (?)", (self._name,))
+    #         return cursor.lastrowid
 
     # Object Relationship Methods and Properties
 

@@ -29,6 +29,7 @@ def create_tables():
         author_id INTEGER NOT NULL,
         magazine_id INTEGER NOT NULL,
         title TEXT NOT NULL,
+        content TEXT NOT NULL,
         FOREIGN KEY(author_id) REFERENCES authors(id),
         FOREIGN KEY(magazine_id) REFERENCES magazines(id)
     )

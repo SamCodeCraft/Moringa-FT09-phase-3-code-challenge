@@ -1,7 +1,7 @@
 from database.connection import get_db_connection
 
 class Article:
-    def __init__(self, id, title, content, author_id, magazine_id):
+    def __init__(self, title, content, author_id, magazine_id, id=None):
      self._id = id
      self._title = title
      self._content = content
