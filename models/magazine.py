@@ -24,7 +24,7 @@ class Magazine:
                 cursor.execute("INSERT INTO magazines (name, category) VALUES (?, ?)", (self._name, self._category))
                 return cursor.lastrowid
 
-        # Object Relationship Methods and Properties
+        # Object Relationship Methods
 
         # 1. Retrieve all articles published in this magazine using SQL JOIN
         def articles(self):
